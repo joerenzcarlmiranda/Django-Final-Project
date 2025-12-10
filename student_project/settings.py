@@ -83,13 +83,14 @@ WSGI_APPLICATION = 'student_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'student_db',
-        'USER': 'postgres',
-        'PASSWORD': 'j0erenzc@rl',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'NAME': 'student_db_f1rm',          # your hosted DB name
+        'USER': 'student_db_f1rm_user',     # your DB username
+        'PASSWORD': 'q0fmd3YDEustQ2RZczYVlX3JPTvYj3ia',  # your DB password
+        'HOST': 'dpg-d4segsmmcj7s73buc5i0-a.oregon-postgres.render.com',  # Render host
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
