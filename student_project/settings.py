@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-)mu=^8yhu+vv%a2fy1%02t978tl0ow8b082d13s(%b%q_-o%t9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']  # for testing, later you can specify your Render URL
+
 
 
 # Application definition
@@ -125,7 +126,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # BASE_DIR already defined in Django 4+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
