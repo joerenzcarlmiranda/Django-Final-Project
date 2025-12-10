@@ -79,12 +79,17 @@ WSGI_APPLICATION = 'student_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-import dj_database_url
 
 DATABASES = {
-    "default": dj_database_url.parse("postgresql://student_db_f1rm_user:q0fmd3YDEustQ2RZczYVlX3JPTvYj3ia@dpg-d4segsmmcj7s73buc5i0-a.oregon-postgres.render.com/student_db_f1rm", conn_max_age=600)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'student_db',
+        'USER': 'postgres',
+        'PASSWORD': 'j0erenzc@rl',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
 }
-
 
 
 # Password validation
