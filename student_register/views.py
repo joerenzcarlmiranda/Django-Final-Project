@@ -6,6 +6,7 @@ from django.db.models import Q
 # Create your views here.
 
 
+
 def student_list(request):
     search_query = request.GET.get('search', '')
 
@@ -16,10 +17,10 @@ def student_list(request):
             Q(fname__icontains=search_query) |
             Q(mname__icontains=search_query) |
             Q(lname__icontains=search_query) |
-            Q(degree__name__icontains=search_query)  # ✅ FIX
+            Q(degree__degree_title__icontains=search_query)  # ✅ correct field
         )
 
-    paginator = Paginator(students, 5)
+    paginator = Paginator(students, 5)  # 5 students per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -29,8 +30,6 @@ def student_list(request):
     }
 
     return render(request, "student_register/student_list.html", context)
-
-
 
 def student_form(request):
     if request.method == "GET":
