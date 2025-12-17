@@ -5,21 +5,20 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 # Create your views here.
 
+
 def student_list(request):
     search_query = request.GET.get('search', '')
 
     students = Student.objects.all()
 
-    # 🔍 SEARCH
     if search_query:
         students = students.filter(
             Q(fname__icontains=search_query) |
             Q(mname__icontains=search_query) |
             Q(lname__icontains=search_query) |
-            Q(degree__icontains=search_query)
+            Q(degree__name__icontains=search_query)  # ✅ FIX
         )
 
-    # 📄 PAGINATION (5 students per page)
     paginator = Paginator(students, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
